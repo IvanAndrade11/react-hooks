@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-function App() {
+interface Props {
+  title: string
+}
+
+interface Task {
+  id: number
+  title: string
+  description: string
+  completed: boolean
+}
+
+
+function App({ title }: Props) {
+  const [tasks, setTasks] = useState<Task[]>([
+    {
+      id: 1,
+      title: "First Task",
+      description: "This is the description",
+      completed: false
+    }
+  ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{title}</h1>
+      {
+        tasks.map(
+          task => <div>{task.title}</div>
+        )
+      }
     </div>
   );
 }
