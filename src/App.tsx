@@ -1,17 +1,12 @@
 import './App.css';
 import { useState } from 'react';
+import logo from './logo.svg';
+import { Task } from './interfaces/Task';
+import TaskList from './components/TaskList';
 
 interface Props {
   title: string
 }
-
-interface Task {
-  id: number
-  title: string
-  description: string
-  completed: boolean
-}
-
 
 function App({ title }: Props) {
   const [tasks, setTasks] = useState<Task[]>([
@@ -22,14 +17,22 @@ function App({ title }: Props) {
       completed: false
     }
   ]);
+
   return (
-    <div className="App">
-      <h1>{title}</h1>
-      {
-        tasks.map(
-          task => <div>{task.title}</div>
-        )
-      }
+    <div className="bg-dark text-white" style={{height: '100vh'}}>
+
+      <nav className='navbar navbar-dark bg-primary'>
+        <div className="container">
+          <a href="/" className='navbar-brand'>
+            <img src={logo} alt="Logo React" style={{ width: '5rem' }}/>
+            {title}
+          </a>
+        </div>
+      </nav>
+
+      <main className="container p4">
+        <TaskList tasks={ tasks }/>
+      </main>
     </div>
   );
 }
