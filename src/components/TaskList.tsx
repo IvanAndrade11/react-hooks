@@ -10,7 +10,7 @@ export default function TaskList({ tasks }: Props){
         {
           tasks.map(
             task => 
-            <div>
+            <div className='col-md-4'>
               <TaskCard task={ task }/>
             </div>
           )

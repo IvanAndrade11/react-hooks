@@ -11,7 +11,9 @@ export default function TaskCard({ task }: Props){
         <h2>{task.title}</h2>
         <p>{task.id}</p>
         <p>{task.description}</p>
-        <button className="btn btn-danger"><FontAwesomeIcon icon={faDeleteLeft} /></button>
+        <button className="btn btn-danger">
+            <FontAwesomeIcon icon={faDeleteLeft} />
+        </button>
         
     </div>
 }
