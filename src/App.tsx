@@ -31,7 +31,14 @@ function App({ title }: Props) {
       </nav>
 
       <main className="container p4">
-        <TaskList tasks={ tasks }/>
+        <div className="col-md-4">
+
+        </div>
+        <div className="col-md-8">
+          <div className="row">
+            <TaskList tasks={ tasks }/>
+          </div>
+        </div>
       </main>
     </div>
   );
