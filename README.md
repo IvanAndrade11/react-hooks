@@ -46,6 +46,10 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 # react-hooks
 ## ✨ This proyect use bootswatch
-* npm i bootswatch
+```
+npm i bootswatch
+```
 * Dont forget import in index.tsx:
-* import "bootswatch/dist/yeti/bootstrap.min.css";
+```
+import "bootswatch/dist/yeti/bootstrap.min.css";
+```
