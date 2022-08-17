@@ -8,8 +8,7 @@ interface Props {
 
 export default function TaskCard({ task }: Props){
     return <div className="card card-body text-dark">
-        <h2>{task.title}</h2>
-        <p>{task.id}</p>
+        <h2>{task.id} {task.title}</h2>
         <p>{task.description}</p>
         <button className="btn btn-danger">
             <FontAwesomeIcon icon={faDeleteLeft} />

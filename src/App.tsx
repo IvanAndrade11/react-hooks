@@ -19,6 +19,8 @@ function App({ title }: Props) {
     }
   ]);
 
+  const addNewTask = (task: Task) => setTasks([...tasks, task]);
+
   return (
     <div className="bg-dark text-white" style={{ height: '100vh' }}>
 
@@ -34,7 +36,7 @@ function App({ title }: Props) {
       <main className="container p4 mt-4">
         <div className="row">
           <div className="col-md-4">
-            <TaskForm />
+            <TaskForm addNewTask={addNewTask} />
           </div>
           <div className="col-md-8">
             <div className="row">

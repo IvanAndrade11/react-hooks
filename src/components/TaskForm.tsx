@@ -1,10 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faBan } from '@fortawesome/free-solid-svg-icons';
 import { ChangeEvent, useState, useRef } from 'react';
+import { Task } from '../interfaces/Task';
 
 type HandleInputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 
-export default function TaskForm() {
+interface Props {
+    addNewTask: (task: Task) => void
+}
+
+export default function TaskForm({ addNewTask }: Props) {
 
     const [task, setTask] = useState({
         title: '',
@@ -18,10 +23,20 @@ export default function TaskForm() {
     }
 
     const form = useRef<HTMLFormElement>(null);
+    
+    const validateForm = (e: Event) => {
+        e.preventDefault();
+        if(task.title === '' || task.description === ''){
+            alert('You must completed all form');
+            return;
+        }
+        alert('COMPLETE')
+        addNewTask(task);
+    }
 
     return <>
         <div className="card card-body text-dark">
-            <form ref={form} action="#">
+            <form ref={form}>
                 <h1>Task Form</h1>
                 <hr />
                 <input
@@ -39,7 +54,9 @@ export default function TaskForm() {
                     onChange={handleInputChange}
                 />
                 <div className="text-center">
-                    <button className="btn btn-primary px-5">
+                    <button className="btn btn-primary px-5"
+                            onClick={(e)=>validateForm(e.nativeEvent)}
+                    >
                         <FontAwesomeIcon icon={faSave} /> Save
                     </button>
                     <button 
